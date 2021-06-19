@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}home
+{% endblock title %}
+
+{% block content %}
+<hr>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form|crispy}}
+    <button type="submit"  class="btn btn-primary mt-3">Submit</button>
+</form>
+<br/>
+
+{% if sales_df %}
+    <h2>Ventas hechas:</h1>
+    <br/>
+    {{sales_df|safe}}
+    <br/>
+    <h2>Productos puestos a la venta:</h2>
+    {{positions_df|safe}}
+{% endif %}
+{% endblock content %}
