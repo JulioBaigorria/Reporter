@@ -19,5 +19,15 @@
     <br/>
     <h2>Productos puestos a la venta:</h2>
     {{positions_df|safe}}
+    <br/>
+    <h2>Tablas fusionadas/mergeadas</h2>
+    {{merged_df|safe}}
+    <br/>
+    <h2>Tablas fusionadas/mergeadas agrupadas por transaction_id</h2>
+    {{merged_df_group|safe}}
+    <br/>
+    <br/>
+    <h2>Charts</h2>
+    <img src="data:image/png;base64, {{chart|safe}}">
 {% endif %}
 {% endblock content %}
