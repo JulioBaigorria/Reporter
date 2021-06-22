@@ -1,6 +1,5 @@
 from django.db import models
 from Applications.Profile.models import Profile
-from django.urls import reverse
 
 class Report(models.Model):
     name = models.CharField(max_length=120)
