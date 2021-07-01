@@ -19,7 +19,6 @@ def home_view(request):
     result_type = None
     no_data = None
     
-    print(report_form)
     if request.method == 'POST':
         date_from = request.POST.get('date_from')
         date_to = request.POST.get('date_to')
@@ -68,7 +67,6 @@ def home_view(request):
             sales_json = sales_df.to_dict()
             sales_df = sales_df.to_html()
             merged_df = merged_df.to_html()
-            merged_df_group = merged_df_group.to_html()
             print(sales_json)
         else:
             #se puede utilizar un true y false pero es preferible asi

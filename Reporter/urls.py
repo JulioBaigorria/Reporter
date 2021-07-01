@@ -18,9 +18,17 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from rest_framework import routers
+from Applications.Customer import views
+
+router = routers.DefaultRouter()
+router.register(r'customer', views.CustomerViewSet)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Applications.Sale.urls', namespace='Sale')),
+    path('reports/', include('Applications.Report.urls', namespace='Report')),
+    path('api/', include(router.urls)),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
