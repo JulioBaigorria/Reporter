@@ -25,7 +25,6 @@ reportBtn.addEventListener('click', ()=> {
 
     reportForm.addEventListener('submit', e=>{
         e.preventDefault()
-        console.log('click')
         const formData = new FormData()
         formData.append('csrfmiddlewaretoken', csrf)
         formData.append('name', reportName.value)
@@ -37,11 +36,11 @@ reportBtn.addEventListener('click', ()=> {
             url: '/reports/save/',
             data: formData,
             success: function(response){
-                console.log(response)
+                
                 alertHandler('success', 'Reporte creado')
             },
             error: function(error){
-                console.log(error)
+                console.error(error)
                 alertHandler('danger', 'Hubo algun error')
             },
             processData: false,

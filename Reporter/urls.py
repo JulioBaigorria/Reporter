@@ -21,13 +21,22 @@ from django.conf.urls.static import static
 from rest_framework import routers
 from Applications.Customer import views
 
+
 router = routers.DefaultRouter()
 router.register(r'customer', views.CustomerViewSet)
+
+
+
+from Applications.Login.views import LoginView, LogoutView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Applications.Sale.urls', namespace='Sale')),
     path('reports/', include('Applications.Report.urls', namespace='Report')),
+    path('login/', LoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
+    path('profile', include('Applications.Profile.urls', namespace='MyProfile')),
     path('api/', include(router.urls)),
 ]
 

@@ -1,0 +1,5 @@
+transactionId,product,quantity,customer,date
+E100,Computadora,10,Bruno,2021-07-05
+E100,Clavos,5,Bruno,2021-07-05
+E200,Computadora,10,Bruno,2021-07-05
+E200,Mandoble,2,Bruno,2021-07-05

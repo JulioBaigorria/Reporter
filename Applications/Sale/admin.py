@@ -15,5 +15,5 @@ class Admin(admin.ModelAdmin):
 
 @admin.register(CSV)
 class Admin(admin.ModelAdmin):
-    list_display = ('file_name', 'activated',)
-    list_filter = ('file_name', 'activated',)
+    list_display = ('file_name',)
+    list_filter = ('file_name', )

@@ -11,10 +11,17 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import json
+import os
+#from django.core.exceptions import ImproperlyConfigured  
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+datajson = {}
+with open('secrets.json') as file:
+    data = json.load(file)
+print(data)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -42,6 +49,7 @@ INSTALLED_APPS = [
     'Applications.Profile',
     'Applications.Report',
     'Applications.Sale',
+    'Applications.Login',
     'crispy_forms',
     'rest_framework',
 ]
@@ -136,6 +144,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
+    BASE_DIR / 'Sale'/ 'static',
+    BASE_DIR / 'Report'/ 'static',
 ]
 
 MEDIA_URL = '/media/'
