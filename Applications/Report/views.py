@@ -16,7 +16,7 @@ from xhtml2pdf import pisa
 
 class ReportListView(ListView):
     model = Report
-    template_name = 'Report/home.html'
+    template_name = 'Report/homeee.html'
     context_object_name = 'lists'
 
 class ReportDetailView(DetailView):

@@ -11,29 +11,24 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import json
-import os
-#from django.core.exceptions import ImproperlyConfigured  
+from config import Conn
+
+# from django.core.exceptions import ImproperlyConfigured
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-datajson = {}
-with open('secrets.json') as file:
-    data = json.load(file)
-print(data)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-i0yh*y^0!d9f*x47@^fl^415$z$!zwiy&w3o^+&(hh4l^&480='
+SECRET_KEY = Conn.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -86,17 +81,20 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Reporter.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+# print(data['databases']['default']['dbengine'])
+# print(data['databases']['default']['name'])
+
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': Conn.ENGINE,
+        'NAME': Conn.DATABASE_NAME,
+        'USER': Conn.USER,
+        'PASSWORD': Conn.PASSWORD,
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -137,15 +135,14 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
-    BASE_DIR / 'Sale'/ 'static',
-    BASE_DIR / 'Report'/ 'static',
+    BASE_DIR / 'Sale' / 'static',
+    BASE_DIR / 'Report' / 'static',
 ]
 
 MEDIA_URL = '/media/'

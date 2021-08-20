@@ -33,11 +33,13 @@ from Applications.Login.views import LoginView, LogoutView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Applications.Sale.urls', namespace='Sale')),
+    path('products/', include('Applications.Product.urls', namespace ='Product')),
     path('reports/', include('Applications.Report.urls', namespace='Report')),
-    path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('profile', include('Applications.Profile.urls', namespace='MyProfile')),
     path('api/', include(router.urls)),
+    path('login/', LoginView.as_view(), name='login'),
+
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

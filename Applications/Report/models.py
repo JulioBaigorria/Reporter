@@ -2,6 +2,7 @@ from django.db import models
 from Applications.Profile.models import Profile
 from django.shortcuts import reverse
 
+
 class Report(models.Model):
     name = models.CharField(max_length=120)
     image = models.ImageField(upload_to='reports', blank=True)
